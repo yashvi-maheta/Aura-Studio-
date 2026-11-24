@@ -554,18 +554,11 @@ export default function AdminPage() {
   const [checking, setChecking]       = useState(true)
 
   useEffect(() => {
-    // Check if already logged in (existing session cookie)
-    api.get('/api/auth/staff/me')
-      .then(() => { /* staff session — not admin */ })
-      .catch(() => null)
-      .finally(() => {
-        // Try admin session via a stats call which requires admin
-        api.get('/api/queue/stats')
-          .then(() => setLoggedIn(true))
-          .catch(() => setLoggedIn(false))
-          .finally(() => setChecking(false))
-      })
-  }, [])
+  api.get('/api/auth/admin/me')
+    .then(() => setLoggedIn(true))
+    .catch(() => setLoggedIn(false))
+    .finally(() => setChecking(false))
+}, [])
 
   if (checking) {
     return (

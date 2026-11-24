@@ -114,6 +114,11 @@ router.post('/admin/login', loginLimiter, (req, res) => {
   return res.json({ ok: true })
 })
 
+
+// ── GET /api/auth/admin/me ────────────────────────────────────────────────────
+router.get('/admin/me', requireAdmin, (req, res) => {
+  return res.json({ ok: true })
+})
 // ── POST /api/auth/admin/logout ───────────────────────────────────────────────
 router.post('/admin/logout', (req, res) => {
   req.session.destroy()

@@ -12,7 +12,8 @@ const {
   getQueueSnapshot,
   getDailyStats,
 } = require('../queue')
-const { requireStaff } = require('../middleware/auth')
+// const { requireStaff } = require('../middleware/auth')
+const { requireStaff, requireAdmin } = require('../middleware/auth')
 
 // Helper — broadcast the updated queue to all Socket.IO clients
 function broadcast(req, snapshot) {
@@ -133,7 +134,7 @@ router.delete('/token/:id', (req, res) => {
 })
 
 // ── GET /api/queue/stats ──────────────────────────────────────────────────────
-router.get('/stats', requireStaff, (req, res) => {
+router.get('/stats', requireAdmin, (req, res) => {
   try {
     const stats = getDailyStats(req.query.date)
     return res.json(stats)
