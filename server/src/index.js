@@ -44,7 +44,8 @@ app.set('io', io)
 //     maxAge:   8 * 60 * 60 * 1000,  // 8 hours
 //   },
 // }))
-
+app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }))
+app.use(express.json())
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
