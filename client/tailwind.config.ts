@@ -1,0 +1,70 @@
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{ts,tsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        ivory:           '#FAF8F2',
+        cream:           '#F1EBDD',
+        'cream-dark':    '#E7DDCD',
+        sage:            '#849477',
+        'sage-light':    '#B8C3AE',
+        'sage-dark':     '#53654B',
+        forest:          '#354536',
+        champagne:       '#C6A978',
+        taupe:           '#B7A48D',
+        beige:           '#E7DDCD',
+        charcoal:        '#292B26',
+        'charcoal-soft': '#50534B',
+        muted:           '#77766D',
+        error:           '#C4826A',
+        'error-light':   '#F5E8E3',
+        success:         '#53654B',
+        'success-light': '#EDF2EB',
+        warning:         '#C6A978',
+        'warning-light': '#FBF4E3',
+        'status-waiting':   '#B7A48D',
+        'status-called':    '#C6A978',
+        'status-serving':   '#849477',
+        'status-completed': '#8A9A83',
+        'status-cancelled': '#C4826A',
+      },
+      fontFamily: {
+        heading: ['Cormorant Garamond', 'Georgia', 'serif'],
+        body:    ['Inter', 'system-ui', 'sans-serif'],
+        mono:    ['JetBrains Mono', 'Courier New', 'monospace'],
+      },
+      fontSize: {
+        'display': ['3.5rem',    { lineHeight: '1.05', fontWeight: '300' }],
+        'h1':      ['2.5rem',    { lineHeight: '1.1',  fontWeight: '400' }],
+        'h2':      ['1.875rem',  { lineHeight: '1.2',  fontWeight: '400' }],
+        'h3':      ['1.375rem',  { lineHeight: '1.3',  fontWeight: '500' }],
+        'h4':      ['1.125rem',  { lineHeight: '1.35', fontWeight: '500' }],
+        'body-lg': ['1.0625rem', { lineHeight: '1.65' }],
+        'token':   ['2rem',      { lineHeight: '1.0',  fontWeight: '600' }],
+      },
+      boxShadow: {
+        'card':        '0 2px 12px rgba(41,43,38,0.07)',
+        'card-hover':  '0 6px 24px rgba(41,43,38,0.11)',
+        'elevated':    '0 12px 40px rgba(41,43,38,0.13)',
+        'inset':       'inset 0 1px 3px rgba(41,43,38,0.08)',
+      },
+      maxWidth: {
+        page: '1120px',
+      },
+      borderRadius: {
+        DEFAULT: '8px',
+        'sm':  '6px',
+        'md':  '10px',
+        'lg':  '14px',
+        'xl':  '20px',
+        '2xl': '24px',
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config

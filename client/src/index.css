@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg:           #FAF8F2;
+    --color-surface:      #F1EBDD;
+    --color-surface-alt:  #E7DDCD;
+    --color-border:       #E7DDCD;
+    --color-accent:       #849477;
+    --color-accent-hover: #53654B;
+    --color-text:         #292B26;
+    --color-text-soft:    #50534B;
+    --color-text-muted:   #77766D;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .page-container {
+    @apply max-w-page mx-auto px-5 md:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 font-body font-medium
+           rounded transition-colors duration-150
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-sage focus-visible:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-sage text-white hover:bg-sage-dark;
+  }
+
+  .btn-secondary {
+    @apply btn-base bg-cream text-charcoal border border-cream-dark hover:bg-cream-dark;
+  }
+
+  .btn-ghost {
+    @apply btn-base bg-transparent text-charcoal-soft hover:bg-cream;
+  }
+
+  .btn-sm  { @apply px-3 py-1.5 text-sm; }
+  .btn-md  { @apply px-5 py-2.5 text-sm; }
+  .btn-lg  { @apply px-7 py-3 text-[15px] font-semibold; }
+  .btn-xl  { @apply px-8 py-4 text-body-lg font-semibold; }
+
+  .card {
+    @apply bg-cream rounded-lg border border-cream-dark shadow-card;
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-xl border border-cream-dark shadow-elevated;
+  }
+}
