@@ -117,15 +117,15 @@ Salon Queue Management Project/
 
 ## Application routes
 
-| URL | Description | Auth required |
-|-----|-------------|---------------|
-| `/` | Customer home page and services | None |
-| `/join` | Queue registration | None |
-| `/track` | Token lookup form | None |
-| `/track/:id` | Customer queue tracking | None (UUID required) |
-| `/staff` | Staff queue dashboard | Staff PIN |
-| `/display` | Now Serving public display | None |
-| `/admin` | Admin dashboard | Admin credentials |
+| URL | Live Link | Description | Auth required |
+|-----|-----------|-------------|---------------|
+| `/` | [Open Home](https://aura-studio-lake.vercel.app/) | Customer home page and services | None |
+| `/join` | [Join Queue](https://aura-studio-lake.vercel.app/join) | Queue registration | None |
+| `/track` | [Open Tracking](https://aura-studio-lake.vercel.app/track) | Token lookup form | None |
+| `/track/:id` | Generated customer link | Customer queue tracking | None (UUID required) |
+| `/staff` | [Staff Dashboard](https://aura-studio-lake.vercel.app/staff) | Staff queue dashboard | Staff PIN |
+| `/display` | [Now Serving](https://aura-studio-lake.vercel.app/display) | Now Serving public display | None |
+| `/admin` | [Admin Dashboard](https://aura-studio-lake.vercel.app/admin) | Admin dashboard | Admin credentials |
 
 ---
 
