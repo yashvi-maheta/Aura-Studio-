@@ -11,11 +11,17 @@ const path     = require('path')
 const fs       = require('fs')
 
 // Ensure the data directory exists
-const dataDir = path.join(__dirname, '..', 'data')
-if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
+// const dataDir = path.join(__dirname, '..', 'data')
+// if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir)
+
+// const db = new Database(path.join(dataDir, 'aura.db'))
+const dataDir = process.env.DB_DIR || path.join(__dirname, '..', 'data')
+
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true })
+}
 
 const db = new Database(path.join(dataDir, 'aura.db'))
-
 // WAL mode gives better concurrent read performance
 db.pragma('journal_mode = WAL')
 db.pragma('foreign_keys = ON')

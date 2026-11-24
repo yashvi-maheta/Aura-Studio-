@@ -18,6 +18,7 @@ const seed           = require('./seed')
 
 const app    = express()
 const server = http.createServer(app)
+app.set('trust proxy', 1) //newly added
 
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173'
 
@@ -31,16 +32,28 @@ app.set('io', io)
 
 // ─── Express middleware ───────────────────────────────────────────────────────
 
-app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }))
-app.use(express.json())
+// app.use(cors({ origin: CLIENT_ORIGIN, credentials: true }))
+// app.use(express.json())
+// app.use(session({
+//   secret:            process.env.SESSION_SECRET || 'dev_secret_change_me',
+//   resave:            false,
+//   saveUninitialized: false,
+//   cookie: {
+//     httpOnly: true,
+//     secure:   false,   // set to true behind HTTPS in production
+//     maxAge:   8 * 60 * 60 * 1000,  // 8 hours
+//   },
+// }))
+
 app.use(session({
-  secret:            process.env.SESSION_SECRET || 'dev_secret_change_me',
-  resave:            false,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
   saveUninitialized: false,
   cookie: {
     httpOnly: true,
-    secure:   false,   // set to true behind HTTPS in production
-    maxAge:   8 * 60 * 60 * 1000,  // 8 hours
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    maxAge: 8 * 60 * 60 * 1000,
   },
 }))
 
